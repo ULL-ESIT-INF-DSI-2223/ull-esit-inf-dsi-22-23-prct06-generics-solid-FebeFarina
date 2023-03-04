@@ -1,6 +1,6 @@
 export interface Media {
   name: string;
   year: number;
-  genre: string;
+  genres: string[];
   rating: number;
 }

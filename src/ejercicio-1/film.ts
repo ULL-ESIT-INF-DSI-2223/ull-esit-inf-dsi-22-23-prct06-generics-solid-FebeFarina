@@ -4,7 +4,7 @@ export class Film implements Media {
   constructor(
     public name: string,
     public year: number,
-    public genre: string,
+    public genres: string[],
     public rating: number,
     public duration: number
   ) {}

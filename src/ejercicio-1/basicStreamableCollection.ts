@@ -16,7 +16,7 @@ export abstract class BasicStreamableCollection<
     return this.collection.filter((item) => item.year === year);
   }
   searchByGenre(genre: string): T[] {
-    return this.collection.filter((item) => item.genre.includes(genre));
+    return this.collection.filter((item) => item.genres.includes(genre));
   }
   searchByRating(rating: number): T[] {
     return this.collection.filter((item) => item.rating === rating);
