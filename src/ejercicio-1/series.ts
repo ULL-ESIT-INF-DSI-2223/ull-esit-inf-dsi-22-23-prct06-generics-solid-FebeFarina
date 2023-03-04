@@ -1,5 +1,7 @@
 import { Media } from "./media";
-
+/**
+ * Clase Series
+ */
 export class Series implements Media {
   constructor(
     public name: string,
