@@ -114,19 +114,4 @@ describe("Ejercicio 1 - DSIflix", () => {
     ]);
     expect(filmCollection.searchByRating(8.2)).to.deep.equal([]);
   });
-  it("Se pueden añadir elementos", () => {
-    const series = [
-      new Series("Breaking Bad", 2008, ["Drama", "Crimen"], 9.5, 5),
-      new Series("The Walking Dead", 2010, ["Horror", "Zombies"], 8.2, 10),
-      new Series("Game of Thrones", 2011, ["Drama", "Fantasía"], 9.3, 8),
-    ];
-    const seriesCollection = new SeriesCollection(series);
-    seriesCollection.add(new Series("The Wire", 2002, ["Drama"], 9.3, 5));
-    expect(seriesCollection.collection).to.deep.equal([
-      new Series("Breaking Bad", 2008, ["Drama", "Crimen"], 9.5, 5),
-      new Series("The Walking Dead", 2010, ["Horror", "Zombies"], 8.2, 10),
-      new Series("Game of Thrones", 2011, ["Drama", "Fantasía"], 9.3, 8),
-      new Series("The Wire", 2002, ["Drama"], 9.3, 5),
-    ]);
-  });
 });

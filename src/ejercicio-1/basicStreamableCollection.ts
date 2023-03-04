@@ -21,7 +21,5 @@ export abstract class BasicStreamableCollection<
   searchByRating(rating: number): T[] {
     return this.collection.filter((item) => item.rating === rating);
   }
-  add(media: T): void {
-    this.collection.push(media);
-  }
+
 }
