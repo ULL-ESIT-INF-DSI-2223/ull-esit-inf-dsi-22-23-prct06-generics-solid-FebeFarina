@@ -59,7 +59,6 @@ export abstract class BasicStreamableCollection<
   searchByRating(rating: number): T[] {
     return this.collection.filter((item) => item.rating === rating);
   }
-
 }
 ```
 
@@ -108,6 +107,7 @@ export class Documentary implements Media {
   ) {}
 }
 ```
+
 ### Clase Series
 
 ```typescript
@@ -161,6 +161,7 @@ export class SeriesCollection extends BasicStreamableCollection<Series> {
 ## Enunciado
 
 Para el segundo ejercicio, se nos pide implementar una clase genérica que modele una lista de elementos de cualquier tipo. Esta clase debe implementar los siguientes métodos:
+
 - `append`
 - `concatenate`
 - `filter`
@@ -302,7 +303,7 @@ El método `forEach` recibe una función que recibe un elemento de tipo **T** y 
 
 ## Enunciado
 
-Para el tercer ejercicio, se nos pide ampliar la biblioteca musical de la práctica anterior. Para ello, se nos pide crear una nueva clase `Single`, la cual funciona de forma similar a la clase `Disco`, con la diferencia de que un single solo cuenta con una sola canción. 
+Para el tercer ejercicio, se nos pide ampliar la biblioteca musical de la práctica anterior. Para ello, se nos pide crear una nueva clase `Single`, la cual funciona de forma similar a la clase `Disco`, con la diferencia de que un single solo cuenta con una sola canción.
 
 ## Interfaz DiscoMetodos y DiscoPropiedades
 
@@ -348,7 +349,7 @@ export class Single implements DiscoMetodos, DiscoPropiedades {
 
 La clase `Single` implementa las interfaces `DiscoMetodos` y `DiscoPropiedades`. Además, cuenta con una propiedad `cancion` de tipo `Cancion`, que es la única canción que contiene el single. Los métodos `getDuracion` y `getReproducciones` devuelven la duración y las reproducciones de la canción, respectivamente.
 
- ## Clase Disco
+## Clase Disco
 
 ```typescript
 export class Disco implements DiscoMetodos, DiscoPropiedades {
@@ -381,7 +382,7 @@ La única modificación que hemos hecho para la clase `Disco` es incluir a las d
 
 ## Clase Discografía
 
-Adicionalmente, nos piden implementar la ya definida clase `Discografía` como una clase genérica, de forma que pueda contener tanto discos como singles. 
+Adicionalmente, nos piden implementar la ya definida clase `Discografía` como una clase genérica, de forma que pueda contener tanto discos como singles.
 
 ```typescript
 export class Discografia<T extends Disco | Single> {
@@ -414,12 +415,13 @@ En primer lugar, se nos pide crear una interfaz genérica **Collectable** con lo
 
 ```typescript
 export interface Collectable<T> {
-    addItem(item: T): void;
-    getItem(index: number): T | null;
-    removeItem(index: number): T | null;
-    getNumberOfItems(): number;
+  addItem(item: T): void;
+  getItem(index: number): T | null;
+  removeItem(index: number): T | null;
+  getNumberOfItems(): number;
 }
 ```
+
 `addItem` se encargará de incluir un objeto a la colección. `getItem` devolverá un objeto de la colección dado un índice. Si el índice es negativo o mayor que el tamaño de la colección, el método devolverá _null_. `removeItem` elimina un objeto de la colección según un índice dado. De la misma forma, devolverá null con un índice incorrecto. `getNumberOfItems` devolverá el tamaño de la colección.
 
 ## Interfaz Printable
@@ -428,7 +430,7 @@ Luego, se nos pide crear otra interfaz genérica **Printable** con un único mé
 
 ```typescript
 export interface Printable<T> {
-    print(): void;
+  print(): void;
 }
 ```
 
@@ -477,29 +479,34 @@ A continuación, definiremos la clase **NumericPrintableCollection**, subclase d
 
 ```typescript
 export class NumericPrintableCollection extends PrintableCollection<number> {
-    constructor(public collection: number[]) {
-        super();
-    }
-    print() {
-        return this.collection.join(",");
-    }
+  constructor(public collection: number[]) {
+    super();
+  }
+  print() {
+    return this.collection.join(",");
+  }
 }
 ```
+
 Para dicha clase, hemos definido el constructor y el método `print`. El método `print` devolverá una cadena de texto con los elementos de la colección separados por comas.
 
 ## String Printable Collection
 
-Por último, definiremos la clase **StringPrintableCollection**, subclase de  **PrintableCollection**. Esta clase modelará una colección de cadenas de texto.
+Por último, definiremos la clase **StringPrintableCollection**, subclase de **PrintableCollection**. Esta clase modelará una colección de cadenas de texto.
 
 ```typescript
 export class StringPrintableCollection extends PrintableCollection<string> {
-    constructor(public collection: string[]) {
-        super();
-    }
-    print() {
-        return this.collection.join(",");
-    }
+  constructor(public collection: string[]) {
+    super();
+  }
+  print() {
+    return this.collection.join(",");
+  }
 }
 ```
 
 La clase opera de forma similar a la anterior, con la diferencia de los tipos.
+
+# Conlusión
+
+Hemos visto cómo definir interfaces y clases genéricas en TypeScript. Además, hemos visto cómo definir clases abstractas y cómo extenderlas. De la misma forma, hemos desarrollado código siguiendo los principios SOLID, los cuales nos permiten escribir código más mantenible y reutilizable. Además, las herramientas de cubrimiento de código resultan muy útiles para comprobar que nuestro código está correctamente probado.
